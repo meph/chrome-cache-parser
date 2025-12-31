@@ -1,15 +1,17 @@
 //! A safe, zero-copy, rust-based chrome cache entry parser, supporting chrome cache versions 2.0,
-//! 2.1, and 3.0.
+//! 2.1, and 3.0, as well as the Simple Cache format used by modern Chromium/Electron apps.
 pub mod block_file;
 pub mod cache_address;
 pub mod cache_index;
 pub mod error;
+pub mod simple_cache;
 pub mod time;
 
 pub use crate::cache_address::CacheAddr;
 use crate::cache_index::CacheVersion;
 pub use crate::cache_index::IndexHeader;
 pub use crate::error::{CCPError, CCPResult};
+pub use crate::simple_cache::{is_block_file_cache, is_simple_cache, SimpleCache, SimpleCacheEntry};
 
 use block_file::{DataFiles, LazyBlockFileCacheEntry, LazyBlockFileCacheEntryIterator};
 use cache_address::CACHE_ADDRESS_SIZE;

@@ -3,3 +3,5 @@ data
 target
 flamegraph.svg
 *~
+extract/
+.DS_Store
